@@ -16,11 +16,13 @@ jobs:
           fetch-depth: 0
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.organization=sharing-community
+            -Dsonar.projectKey=sharing-community_riven
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Analyze with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
   main:
     name: Nx Cloud - Development Job
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
