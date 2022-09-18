@@ -21,16 +21,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: my-custom-directory
-          args: >
-            -Dsonar.organization=my-organization
-            -Dsonar.projectKey=my-projectkey
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=lib/
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
-            -Dsonar.verbose=true
   main:
     name: Nx Cloud - Main Job
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
